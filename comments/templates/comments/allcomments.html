@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+
+
+{% block title %}
+    Comments
+{% endblock %}
+
+{% block content %}
+    {% for c in comments %}
+    <div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ c.username | capfirst }} says: </h5>
+                <h6 class="card-subtitle mb-2 text-muted">Comment # {{ c.id }}</h6>
+                <p class="card-text"> {{ c.comment_text }} </p>
+
+
+                <div class="likes">
+                    <h5>Likes</h5>
+                    <h5 id="like-qty">{{ c.likes }}</h5>
+
+                </div>
+
+                <a href="{% url 'comments:post_comment' %}" class="card-link">Create a new comment</a>
+                <button type="button" class="btn btn-success" id="btn">Like Post</button>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+
+{% endblock %}

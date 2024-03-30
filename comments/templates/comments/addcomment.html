@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Add a new comment
+{% endblock %}
+
+{% block content %}
+    <h1> Fill the form to send a comment </h1>
+    <form method="post">
+    {{ form.as_p }}
+
+    {% csrf_token %}
+
+    <input type="submit" value="Post Comment">
+
+    </form>
+
+{% endblock %}
